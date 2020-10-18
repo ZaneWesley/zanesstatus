@@ -131,6 +131,7 @@ if(showControls === true) {
    }
    //Change page title
    document.title = "Zane\'s Status | "+message.text;
+   $('#status-text').text(message.text);
    // handle autoscroll
    // manage autoscroll
    var obj = $("ul.messages.list-group");
