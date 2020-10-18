@@ -53,11 +53,12 @@ io.on("connection", function(socket) {
     if (typeof(userdata !== undefined)) {
       socket.leave(userdata.roomKey); // leave the room
       //broadcast leave room to only memebers of same room
-      socket.broadcast.to(userdata.roomKey).emit("message", {
+      /*socket.broadcast.to(userdata.roomKey).emit("message", {
         text: userdata.name + " has left",
         name: "Web Chat",
         timestamp: moment().valueOf()
-      });
+      });*/
+      console.log(moment().valueOf() + ': A status monitor has left.');
 
       // delete user data-
       //delete clientInfo[socket.id];
@@ -70,11 +71,12 @@ io.on("connection", function(socket) {
     clientInfo[socket.id] = req;
     socket.join(req.roomKey);
     //broadcast new user joined room
-    socket.broadcast.to(req.roomKey).emit("message", {
+    /*socket.broadcast.to(req.roomKey).emit("message", {
       name: "Web Chat",
       text: req.name + ' has joined',
       timestamp: moment().valueOf()
-    });
+    });*/
+    console.log(moment().valueOf() + ': A status monitor has joined.');
 
   });
 
