@@ -183,6 +183,28 @@
    }));
    $messages.append($message);
    $message1.val('');
+   //Change background color
+   var statusRecognized = false;
+   switch(message.text) {
+    case 'available':
+      document.body.style.backgroundColor="#4CAF50";
+      statusRecognized = true;
+      break;
+    case 'working':
+      document.body.style.backgroundColor="#ffc107";
+      statusRecognized = true;
+      break;
+    case 'unavailable':
+      document.body.style.backgroundColor="#f44336";
+      statusRecognized = true;
+      break;
+   }
+   if(!statusRecognized) {
+    document.body.style.backgroundColor=message.text;
+   }
+   //Change page title
+   document.title = "Zane\'s Status | "+message.text;
+   $('#status-text').text(message.text);
    // manage autoscroll
    var obj = $("ul.messages.list-group");
    var offset = obj.offset();
