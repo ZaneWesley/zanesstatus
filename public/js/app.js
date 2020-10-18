@@ -6,10 +6,11 @@
  // fires when client successfully conencts to the server
  socket.on("connect", function() {
    console.log("Connected to Socket I/O Server!");
-   console.log(name + " wants to join  " + roomName);
+   //console.log(name + " wants to join  " + roomName);
+   console.log("User joined");
    // to join a specific room
    socket.emit('joinRoom', {
-     name: name,
+     //name: name,
      roomKey: roomKey//,
      //roomName: roomName
    });
@@ -99,7 +100,7 @@
 
    var momentTimestamp = moment.utc(message.timestamp).local().format("h:mm a");
    //$(".messages").append($('<p>').text(message.text));
-   $message.append("<span>" + momentTimestamp + "<strong> " + message.name + "</strong></span>");
+   $message.append("<span>" + momentTimestamp + /*"<strong> " + message.name + "</strong>*/"</span>");
    $message.append("<p>" + message.text + "</p>");
    $messages.append($message);
    // handle autoscroll
@@ -164,7 +165,7 @@
 
    socket.emit("message", {
      text: msg,
-     name: name
+     //name: name
    });
    // show user messageForm
    var $messages = $(".messages");
@@ -172,7 +173,7 @@
 
    var momentTimestamp = moment().format("h:mm a");
    // $(".messages").append($('<p>').text(message.text));
-   $message.append("<strong>" + name + " " + momentTimestamp + "</strong>");
+   $message.append("<strong>"/* + name + " "*/ + momentTimestamp + "</strong>");
    //$message.append("<p>" + $message1.val()+ "</p>");
    $message.append($("<p>", {
      class: "mymessages",
