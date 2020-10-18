@@ -103,6 +103,25 @@
    $message.append("<span>" + momentTimestamp + /*"<strong> " + message.name + "</strong>*/"</span>");
    $message.append("<p>" + message.text + "</p>");
    $messages.append($message);
+   //Change background color
+   var statusRecognized = false;
+   switch(message.text) {
+    case 'available':
+      document.body.style.backgroundColor="#4CAF50";
+      statusRecognized = true;
+      break;
+    case 'working':
+      document.body.style.backgroundColor="#ffc107";
+      statusRecognized = true;
+      break;
+    case 'unavailable':
+      document.body.style.backgroundColor="#f44336";
+      statusRecognized = true;
+      break;
+   }
+   if(!statusRecognized) {
+    document.body.style.backgroundColor=message.text;
+   }
    // handle autoscroll
    // manage autoscroll
    var obj = $("ul.messages.list-group");
@@ -131,26 +150,6 @@
      };
      socket.emit("userSeen", umsg);
    }*/
-
-   var statusRecognized = false;
-
-   switch(message) {
-    case 'available':
-      document.body.style.backgroundColor="#4CAF50";
-      statusRecognized = true;
-      break;
-    case 'working':
-      document.body.style.backgroundColor="#ffc107";
-      statusRecognized = true;
-      break;
-    case 'unavailable':
-      document.body.style.backgroundColor="#f44336";
-      statusRecognized = true;
-      break;
-   }
-   if(!statusRecognized) {
-    document.body.style.backgroundColor=message;
-   }
  });
 
  // handles submitting of new message
