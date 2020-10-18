@@ -185,7 +185,7 @@
    $message1.val('');
    //Change background color
    var statusRecognized = false;
-   switch(message.text) {
+   switch(msg) {
     case 'available':
       document.body.style.backgroundColor="#4CAF50";
       statusRecognized = true;
@@ -200,11 +200,11 @@
       break;
    }
    if(!statusRecognized) {
-    document.body.style.backgroundColor=message.text;
+    document.body.style.backgroundColor=msg;
    }
    //Change page title
-   document.title = "Zane\'s Status | "+message.text;
-   $('#status-text').text(message.text);
+   document.title = "Zane\'s Status | "+msg;
+   $('#status-text').text(msg);
    // manage autoscroll
    var obj = $("ul.messages.list-group");
    var offset = obj.offset();
