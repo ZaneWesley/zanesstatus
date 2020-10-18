@@ -2,13 +2,6 @@
  // listen for server connection
  // get query params from url
  var roomKey = getQueryVariable("key") || '';
- var showControls = getQueryVariable("controls") || 'false';
-
-if(showControls === true) {
-  $('.controls').fadeIn();
-} else {
-  $('.controls').hide();
-}
 
  // fires when client successfully conencts to the server
  socket.on("connect", function() {
