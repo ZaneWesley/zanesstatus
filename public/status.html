@@ -42,6 +42,17 @@
             padding: 2em;
             display: none;
           }
+          #status-text {
+            font-weight: bold;
+            font-size: 3em;
+            text-align: center;
+            text-transform: capitalize;
+            vertical-align: middle;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
     </style>
   </head>
   <body>
@@ -63,6 +74,10 @@
       <button id="available" onclick="setAvailable();">Available</button>
       <button id="working" onclick="setWorking();">Working</button>
       <button id="unavailable" onclick="setUnavailable();">Unavailable</button>
+    </div>
+
+    <div id="status-text">
+      Unknown Status
     </div>
 
     <script>
