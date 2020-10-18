@@ -4,7 +4,7 @@
  var roomKey = getQueryVariable("key") || '';
  var showControls = getQueryVariable("controls") || 'false';
 
-if(showControls) {
+if(showControls === true) {
   $('.controls').fadeIn();
 } else {
   $('.controls').hide();
